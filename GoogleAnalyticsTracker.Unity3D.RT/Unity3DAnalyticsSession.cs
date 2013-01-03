@@ -1,4 +1,4 @@
-﻿using System.IO.IsolatedStorage;
+﻿using UnityEngine;
 
 namespace GoogleAnalyticsTracker
 {
@@ -13,22 +13,43 @@ namespace GoogleAnalyticsTracker
 #if UNITY3D
         protected override string GetUniqueVisitorId() 
 		{
-			return "";
+            if (!SystemPrefUtil.HasLocalSetting(StorageKeyUniqueId))
+            {
+                SystemPrefUtil.SetLocalSettingString(StorageKeyUniqueId, base.GetUniqueVisitorId());
+            }
+            return SystemPrefUtil.GetLocalSettingString(StorageKeyUniqueId);
 		}
 		 
 		protected override int GetFirstVisitTime()
         {
-			return 0;
+            if (!SystemPrefUtil.HasLocalSetting(StorageKeyFirstVisitTime))
+            {
+                SystemPrefUtil.SetLocalSettingInt(StorageKeyFirstVisitTime, base.GetFirstVisitTime());
+            }
+            return SystemPrefUtil.GetLocalSettingInt(StorageKeyFirstVisitTime);
 		}
 		
         protected override int GetPreviousVisitTime()
         {
-			return 0;
+            if (!SystemPrefUtil.HasLocalSetting(StorageKeyPreviousVisitTime))
+            {
+                SystemPrefUtil.SetLocalSettingInt(StorageKeyPreviousVisitTime, base.GetPreviousVisitTime());
+            }
+
+            var previousVisitTime = SystemPrefUtil.GetLocalSettingInt(StorageKeyPreviousVisitTime);
+            SystemPrefUtil.SetLocalSettingInt(StorageKeyPreviousVisitTime, GetCurrentVisitTime());
+            return previousVisitTime;
 		}
 		
         protected override int GetSessionCount()
         {
-			return 0;
+            if (!SystemPrefUtil.HasLocalSetting(StorageKeySessionCount))
+            {
+                SystemPrefUtil.SetLocalSettingInt(StorageKeySessionCount, base.GetPreviousVisitTime());
+            }
+            var sessionCount = SystemPrefUtil.GetLocalSettingInt(StorageKeySessionCount);
+            SystemPrefUtil.SetLocalSettingInt(StorageKeySessionCount, sessionCount++);
+            return sessionCount;
 		}
 #else
         private readonly IsolatedStorageSettings _settings = IsolatedStorageSettings.ApplicationSettings;

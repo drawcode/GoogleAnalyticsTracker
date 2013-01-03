@@ -39,7 +39,7 @@ namespace GoogleAnalyticsTracker
 
         public bool UseSsl { get; set; }
 
-#if !WINDOWS_PHONE && !NETFX_CORE
+#if !WINDOWS_PHONE && !NETFX_CORE && !UNITY3D
         public Tracker()
             : this(new AnalyticsSession())
         {

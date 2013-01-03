@@ -37,11 +37,19 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Unity3DAnalyticsSession.cs" />
     <Compile Include="Tracker.unity3d.cs" />
+    <Compile Include="SystemPrefUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GoogleAnalyticsTracker\GoogleAnalyticsTracker.csproj">
       <Project>{9B6AA06C-85A9-45B9-BE39-0CDAE19D9FD2}</Project>
       <Name>GoogleAnalyticsTracker</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral">
+      <Private>False</Private>
+      <Package>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll</Package>
+    </Reference>
+    <Reference Include="System" />
   </ItemGroup>
 </Project>

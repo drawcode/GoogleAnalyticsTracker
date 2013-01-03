@@ -6,8 +6,10 @@ namespace GoogleAnalyticsTracker
     {
 #if UNITY3D
         public Tracker(string trackingAccount, string trackingDomain)
-			: this(trackingAccount, trackingDomain, new Unity3DAnalyticsSession())
+			// partials.. should work in unity currently not...
+			//: this(trackingAccount, trackingDomain, new Unity3DAnalyticsSession())
         {
+			
         }
 #endif
     }
