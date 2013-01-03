@@ -4,7 +4,9 @@ using System.Configuration;
 using System.Globalization;
 using System.Net;
 using System.Text;
+#if !UNITY3D
 using System.Threading.Tasks;
+#endif
 
 namespace GoogleAnalyticsTracker
 {
@@ -37,7 +39,7 @@ namespace GoogleAnalyticsTracker
 
         public bool UseSsl { get; set; }
 
-#if !WINDOWS_PHONE && !NETFX_CORE
+#if !WINDOWS_PHONE && !NETFX_CORE && !UNITY3D
         public Tracker()
             : this(new AnalyticsSession())
         {
@@ -60,7 +62,7 @@ namespace GoogleAnalyticsTracker
             TrackingDomain = trackingDomain;
             AnalyticsSession = analyticsSession;
 
-#if !WINDOWS_PHONE && !NETFX_CORE
+#if !WINDOWS_PHONE && !NETFX_CORE && !UNITY3D
             string hostname = Dns.GetHostName();
             string osversionstring = Environment.OSVersion.VersionString;
             string osplatform = Environment.OSVersion.Platform.ToString();
@@ -109,7 +111,9 @@ namespace GoogleAnalyticsTracker
 
             CustomVariables[position - 1] = new CustomVariable(name, value);
         }
-
+		
+		
+#if !UNITY3D
         private Task<TrackingResult> RequestUrlAsync(string url, Dictionary<string, string> parameters)
         {
             // Create GET string
@@ -123,7 +127,7 @@ namespace GoogleAnalyticsTracker
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(string.Format("{0}?{1}", url, data));
             request.CookieContainer = CookieContainer;
 
-#if !WINDOWS_PHONE && !NETFX_CORE
+#if !WINDOWS_PHONE && !NETFX_CORE && !UNITY3D
             request.Referer = string.Format("http://{0}/", TrackingDomain);
 #endif
 
@@ -149,7 +153,7 @@ namespace GoogleAnalyticsTracker
                                              return returnValue;
                                          });
         }
-
+#endif
         #region IDisposable Members
 
         private bool disposed;

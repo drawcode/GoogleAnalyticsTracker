@@ -1,5 +1,5 @@
 using System.Web;
-using Newtonsoft.Json;
+//using Newtonsoft.Json;
 
 namespace GoogleAnalyticsTracker.Web
 {
@@ -12,7 +12,7 @@ namespace GoogleAnalyticsTracker.Web
                 var cookie = context.Request.Cookies.Get(key);
                 if (cookie != null)
                 {
-                    return JsonConvert.DeserializeObject<T>(cookie.Value);
+                    //return JsonConvert.DeserializeObject<T>(cookie.Value);
                 }
             }
             return default(T);
@@ -22,7 +22,7 @@ namespace GoogleAnalyticsTracker.Web
         {
             if (context != null)
             {
-                context.Response.Cookies.Add(new HttpCookie(key, JsonConvert.SerializeObject(value)));
+               // context.Response.Cookies.Add(new HttpCookie(key, JsonConvert.SerializeObject(value)));
             }
         }
     }

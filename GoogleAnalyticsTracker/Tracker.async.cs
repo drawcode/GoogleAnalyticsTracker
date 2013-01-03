@@ -1,10 +1,15 @@
 ﻿using System.Collections.Generic;
+
+#if !UNITY3D
 using System.Threading.Tasks;
+#endif
 
 namespace GoogleAnalyticsTracker
 {
     public partial class Tracker
     {
+		
+#if !UNITY3D
         public Task<TrackingResult> TrackPageViewAsync(string pageTitle, string pageUrl)
         {
             Dictionary<string, string> parameters = new Dictionary<string, string>();
@@ -71,5 +76,6 @@ namespace GoogleAnalyticsTracker
 
             return RequestUrlAsync(UseSsl ? BeaconUrlSsl : BeaconUrl, parameters);
         }
+#endif
     }
 }
