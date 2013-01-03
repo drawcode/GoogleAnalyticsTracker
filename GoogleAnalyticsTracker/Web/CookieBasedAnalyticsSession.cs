@@ -11,7 +11,7 @@ namespace GoogleAnalyticsTracker.Web
         private const string StorageKeyFirstVisitTime = "_GAT_fvt";
         private const string StorageKeyPreviousVisitTime = "_GAT_pvt";
         private const string StorageKeySessionCount = "_GAT_sc";
-
+#if !UNITY3D
         protected HttpContextBase GetHttpContext()
         {
             if (HttpContext.Current != null)
@@ -58,5 +58,6 @@ namespace GoogleAnalyticsTracker.Web
             GetHttpContext().SetSerializedCookieValue(StorageKeySessionCount, ++sessionCount);
             return sessionCount;
         }
+#endif
     }
 }

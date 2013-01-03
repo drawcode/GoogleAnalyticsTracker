@@ -5,6 +5,8 @@ namespace GoogleAnalyticsTracker.Web
 {
     public static class HttpContextBaseExtensions
     {
+		
+#if !UNITY3D
         public static T GetDeserializedCookieValue<T>(this HttpContextBase context, string key)
         {
             if (context != null)
@@ -25,5 +27,6 @@ namespace GoogleAnalyticsTracker.Web
                // context.Response.Cookies.Add(new HttpCookie(key, JsonConvert.SerializeObject(value)));
             }
         }
+#endif
     }
 }

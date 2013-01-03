@@ -1,25 +1,26 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="GoogleAnalyticsTracker.Unity3D.RT/Unity3DAnalyticsSession.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GoogleAnalyticsTracker.Unity3D.RT/Tracker.unity3d.cs">
     <Files>
-      <File FileName="GoogleAnalyticsTracker/Web/HttpContextBaseExtensions.cs" Line="25" Column="18" />
-      <File FileName="GoogleAnalyticsTracker/Web/PageViewTrackerExtensions.cs" Line="1" Column="1" />
+      <File FileName="GoogleAnalyticsTracker/Web/HttpContextBaseExtensions.cs" Line="14" Column="22" />
+      <File FileName="GoogleAnalyticsTracker/Web/PageViewTrackerExtensions.cs" Line="14" Column="3" />
       <File FileName="GoogleAnalyticsTracker/AnalyticsSession.cs" Line="1" Column="1" />
       <File FileName="GoogleAnalyticsTracker/CustomVariable.cs" Line="1" Column="1" />
-      <File FileName="GoogleAnalyticsTracker/Web/CookieBasedAnalyticsSession.cs" Line="3" Column="3" />
+      <File FileName="GoogleAnalyticsTracker/Web/CookieBasedAnalyticsSession.cs" Line="51" Column="4" />
       <File FileName="GoogleAnalyticsTracker/Properties/AssemblyInfo.cs" Line="1" Column="1" />
       <File FileName="GoogleAnalyticsTracker.Unity3D.RT/Properties/AssemblyInfo.cs" Line="19" Column="117" />
-      <File FileName="GoogleAnalyticsTracker/Tracker.cs" Line="126" Column="46" />
+      <File FileName="GoogleAnalyticsTracker/Tracker.cs" Line="157" Column="3" />
       <File FileName="GoogleAnalyticsTracker/TrackingResult.cs" Line="1" Column="1" />
       <File FileName="GoogleAnalyticsTracker/UtmeGenerator.cs" Line="1" Column="1" />
-      <File FileName="GoogleAnalyticsTracker/Tracker.tracking.cs" Line="1" Column="1" />
-      <File FileName="GoogleAnalyticsTracker/Tracker.async.cs" Line="1" Column="1" />
+      <File FileName="GoogleAnalyticsTracker/Tracker.tracking.cs" Line="25" Column="21" />
       <File FileName="GoogleAnalyticsTracker/packages.config" Line="1" Column="1" />
       <File FileName="GoogleAnalyticsTracker/IAnalyticsSession.cs" Line="1" Column="1" />
       <File FileName="GoogleAnalyticsTracker/GoogleAnalyticsTracker.nuspec" Line="1" Column="1" />
       <File FileName="GoogleAnalyticsTracker/EventTrackerExtensions.cs" Line="1" Column="1" />
       <File FileName="GoogleAnalyticsTracker/DateTimeExtensions.cs" Line="1" Column="1" />
-      <File FileName="GoogleAnalyticsTracker.Unity3D.RT/Unity3DAnalyticsSession.cs" Line="6" Column="11" />
+      <File FileName="GoogleAnalyticsTracker.Unity3D.RT/Unity3DAnalyticsSession.cs" Line="57" Column="1" />
+      <File FileName="GoogleAnalyticsTracker/Tracker.async.cs" Line="62" Column="22" />
+      <File FileName="GoogleAnalyticsTracker.Unity3D.RT/Tracker.unity3d.cs" Line="9" Column="11" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

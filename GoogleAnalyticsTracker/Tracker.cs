@@ -39,12 +39,12 @@ namespace GoogleAnalyticsTracker
 
         public bool UseSsl { get; set; }
 
-#if !WINDOWS_PHONE && !NETFX_CORE && !UNITY3D
+#if !WINDOWS_PHONE && !NETFX_CORE
         public Tracker()
             : this(new AnalyticsSession())
         {
         }
-
+		
         public Tracker(IAnalyticsSession analyticsSession)
             : this(ConfigurationManager.AppSettings[TrackingAccountConfigurationKey], ConfigurationManager.AppSettings[TrackingDomainConfigurationKey], analyticsSession)
         {
@@ -153,6 +153,12 @@ namespace GoogleAnalyticsTracker
                                              return returnValue;
                                          });
         }
+#else
+		
+        private void RequestUrlAsync(string url, Dictionary<string, string> parameters)
+        {
+			// Unity WWW or call direct
+		}
 #endif
         #region IDisposable Members
 

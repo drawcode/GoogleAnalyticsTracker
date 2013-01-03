@@ -51,6 +51,7 @@
       <Private>False</Private>
       <Package>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll</Package>
     </Reference>
+    <Reference Include="System.Configuration" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DateTimeExtensions.cs" />

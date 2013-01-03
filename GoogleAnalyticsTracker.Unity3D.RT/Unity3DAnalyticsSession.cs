@@ -9,8 +9,30 @@ namespace GoogleAnalyticsTracker
         private const string StorageKeyFirstVisitTime = "GoogleAnalytics.FirstVisitTime";
         private const string StorageKeyPreviousVisitTime = "GoogleAnalytics.PrevVisitTime";
         private const string StorageKeySessionCount = "GoogleAnalytics.SessionCount";
-
+		
+#if UNITY3D
+        protected override string GetUniqueVisitorId() 
+		{
+			return "";
+		}
+		 
+		protected override int GetFirstVisitTime()
+        {
+			return 0;
+		}
+		
+        protected override int GetPreviousVisitTime()
+        {
+			return 0;
+		}
+		
+        protected override int GetSessionCount()
+        {
+			return 0;
+		}
+#else
         private readonly IsolatedStorageSettings _settings = IsolatedStorageSettings.ApplicationSettings;
+
 
         protected override string GetUniqueVisitorId()
         {
@@ -52,5 +74,6 @@ namespace GoogleAnalyticsTracker
             _settings[StorageKeySessionCount] = sessionCount++;
             return sessionCount;
         }
+#endif
     }
 }

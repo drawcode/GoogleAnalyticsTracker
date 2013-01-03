@@ -6,6 +6,7 @@ namespace GoogleAnalyticsTracker
 {
     public static class PageViewTrackerExtensions
     {
+#if !UNITY3D
         public static void TrackPageView(this Tracker tracker, HttpContextBase httpContext, string pageTitle)
         {
             TrackPageView(tracker, httpContext, pageTitle, httpContext.Request.Url.ToString());
@@ -19,5 +20,6 @@ namespace GoogleAnalyticsTracker
             tracker.Language = request.UserLanguages != null ? string.Join(";", request.UserLanguages) : "";
             tracker.TrackPageView(pageTitle, pageUrl);
         }
+#endif
     }
 }
